@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zirve Antep Baklava | Lezzetin Zirvesi - Online Sipariş</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #0d2818;
+      --secondary-color: #0d4827;
+      --accent-color: #d4af37;
+      --accent-hover: #b59226;
+      --bg-dark: #0a0f0d;
+      --card-bg: #121c17;
+      --text-light: #f4f4f4;
+      --text-muted: #a0aab0;
+      --border-color: #26382e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      padding-bottom: 80px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Arka Plan Hareketli & Dikkat Çekici Minimal Işık Efektleri */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: -20%;
+      width: 70vw;
+      height: 70vw;
+      background: radial-gradient(circle, rgba(13, 72, 39, 0.25) 0%, rgba(10, 15, 13, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+      animation: pulseGlow1 8s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      right: -20%;
+      width: 70vw;
+      height: 70vw;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(10, 15, 13, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+      animation: pulseGlow2 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseGlow1 {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.7; }
+      100% { transform: scale(1.15) translate(30px, 20px); opacity: 1; }
+    }
+
+    @keyframes pulseGlow2 {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+      100% { transform: scale(1.2) translate(-30px, -20px); opacity: 0.9; }
+    }
+
+    /* HEADER */
+    header {
+      background-color: rgba(12, 62, 32, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--accent-color);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent-color), #8a6d1b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0d2818;
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 800;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+      text-shadow: 0 1px 2px rgba(255,255,255,0.4);
+      position: relative;
+    }
+
+    .logo-badge::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px dashed rgba(212, 175, 55, 0.7);
+      animation: rotateGlow 10s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+      100% { transform: rotate(360deg); }
+    }
+
+    .logo-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--accent-color);
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 40px 10px 15px;
+      border-radius: 25px;
+      border: 1px solid var(--border-color);
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-color);
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    .search-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-color);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-btn-header {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--accent-color);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .menu-btn-header:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: var(--accent-color);
+      transform: scale(1.05);
+    }
+
+    .cart-btn-header {
+      position: relative;
+      background: var(--accent-color);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .cart-btn-header:hover {
+      background: var(--accent-hover);
+      transform: scale(1.03);
+    }
+
+    .cart-badge {
+      background: #c0392b;
+      color: white;
+      font-size: 12px;
+      padding: 2px 7px;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+
+    /* HERO BANNER */
+    .hero {
+      background: linear-gradient(rgba(10, 15, 13, 0.8), rgba(10, 15, 13, 0.92)), #121c17;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 36px;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      color: var(--text-light);
+      font-weight: 300;
+    }
+
+    .info-badges {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .info-badge {
+      background: rgba(22, 66, 41, 0.7);
+      border: 1px solid var(--accent-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    a.info-badge:hover {
+      background: rgba(212, 175, 55, 0.2);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    .info-badge i {
+      color: var(--accent-color);
+    }
+
+    /* GERÇEK GOOGLE YORUMLARI KAYDIRILABİLİR SLİDER (YENİ) */
+    .reviews-section {
+      background: linear-gradient(135deg, rgba(18, 28, 23, 0.95), rgba(10, 20, 15, 0.98));
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 25px 20px;
+      margin: 30px 0;
+    }
+
+    .reviews-header {
+      max-width: 1200px;
+      margin: 0 auto 15px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .google-rating-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .google-icon {
+      font-size: 24px;
+      color: #4285F4;
+    }
+
+    .reviews-slider-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-color) var(--border-color);
+    }
+
+    .reviews-slider-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .reviews-slider-container::-webkit-scrollbar-thumb {
+      background: var(--accent-color);
+      border-radius: 10px;
+    }
+
+    .review-card {
+      min-width: 300px;
+      max-width: 350px;
+      flex: 1;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .review-author {
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .review-stars {
+      color: #f39c12;
+      font-size: 12px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .review-time {
+      font-size: 11px;
+      color: rgba(160, 170, 176, 0.6);
+      margin-top: auto;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: var(--accent-color);
+      margin-bottom: 25px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--accent-color);
+      margin: 8px auto 0;
+      box-shadow: 0 0 8px var(--accent-color);
+    }
+
+    /* MENU GRID */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.6), 0 0 15px rgba(212, 175, 55, 0.25);
+      border-color: var(--accent-color);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: #1a2620;
+    }
+
+    .product-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .product-controls {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .qty-selector {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 5px 10px;
+    }
+
+    .qty-btn {
+      background: none;
+      border: none;
+      color: var(--accent-color);
+      font-size: 18px;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+
+    .qty-btn:hover {
+      background: rgba(212, 175, 55, 0.2);
+    }
+
+    .qty-text {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .add-to-cart-btn {
+      background: var(--secondary-color);
+      color: #fff;
+      border: 1px solid var(--accent-color);
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s, box-shadow 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--accent-color);
+      color: #000;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+    }
+
+    /* MODAL OVERLAY (CART & MENU) */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .cart-modal {
+      background: var(--card-bg);
+      border: 1px solid var(--accent-color);
+      width: 100%;
+      max-width: 550px;
+      border-radius: 12px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+
+    .cart-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+      color: #fff;
+    }
+
+    .cart-body {
+      padding: 20px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cart-item-info h4 {
+      font-size: 15px;
+      color: #fff;
+    }
+
+    .cart-item-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .cart-item-price {
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    .remove-item {
+      color: #e74c3c;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* ÖDEME SEÇENEKLERİ BİLGİ ROZETİ */
+    .payment-info-badge {
+      background: rgba(13, 72, 39, 0.4);
+      border: 1px dashed var(--accent-color);
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .payment-info-badge i {
+      color: var(--accent-color);
+      font-size: 16px;
+    }
+
+    .checkout-form {
+      margin-top: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkout-form input, .checkout-form textarea {
+      width: 100%;
+      padding: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .checkout-form input:focus, .checkout-form textarea:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .whatsapp-order-btn {
+      background: #25D366;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .whatsapp-order-btn:hover {
+      background: #1eb857;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+    }
+
+    /* FOOTER & ADDRESS */
+    .footer-section {
+      margin-top: 60px;
+      background: #060a08;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 20px 20px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-box h4 {
+      font-family: 'Cinzel', serif;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-box p, .footer-box li {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+      list-style: none;
+    }
+
+    .footer-box i {
+      color: var(--accent-color);
+      width: 20px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      margin-top: 10px;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6), 0 0 15px rgba(37, 211, 102, 0.5);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.8), 0 0 20px rgba(37, 211, 102, 0.8);
+    }
+
+    .empty-cart-msg {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 30px 0;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+      }
+      .search-box {
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo-container">
+        <div class="logo-badge">Z</div>
+        <div class="logo-text">
+          <h1>ZİRVE ANTEP BAKLAVA</h1>
+          <span>LEZZETİN ZİRVESİ</span>
+        </div>
+      </a>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Menüde lezzet ara..." onkeyup="filterProducts()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <div class="header-actions">
+        <!-- 3 Nokta Menü Butonu -->
+        <div class="menu-btn-header" onclick="toggleMenu()" title="Menü & Hakkımızda">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        
+        <!-- Sepet Butonu -->
+        <div class="cart-btn-header" onclick="toggleCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>Sepetim</span>
+          <span class="cart-badge" id="cartCount">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h2>Lezzetin Zirvesi</h2>
+    <p>Geleneksel Antep baklavası, günlük ve taze malzemelerle Ustasından sofranıza.</p>
+    <div class="info-badges">
+      <div class="info-badge"><i class="fa-solid fa-clock"></i> 10:00 - 00:00</div>
+      <div class="info-badge"><i class="fa-solid fa-phone"></i> 0553 595 52 84</div>
+      <a href="https://instagram.com/zirveantepbaklava" target="_blank" class="info-badge">
+        <i class="fa-brands fa-instagram" style="color: #e1306c;"></i> @zirveantepbaklava
+      </a>
+      <div class="info-badge"><i class="fa-solid fa-location-dot"></i> Etimesgut, Ankara</div>
+    </div>
+  </section>
+
+  <!-- GERÇEK GOOGLE YORUMLARI KAYDIRILABİLİR ALANI (YENİ) -->
+  <section class="reviews-section">
+    <div class="reviews-header">
+      <div class="google-rating-info">
+        <i class="fa-brands fa-google google-icon"></i>
+        <div>
+          <div style="font-weight: 700; font-size: 16px; color: #fff;">Google Müşteri Puanı</div>
+          <div style="font-size: 13px; color: var(--accent-color); font-weight: 600;">
+            4.0 / 5.0 <span class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></span> (167 Değerlendirme)
+          </div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: var(--text-muted);">
+        <i class="fa-solid fa-arrow-right-arrow-left"></i> Yorumları kaydırabilirsiniz
+      </div>
+    </div>
+
+    <div class="reviews-slider-container">
+      <div class="review-card">
+        <div class="review-author">
+          <span>Kübra Erdoğan</span>
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <p class="review-text">"Zirve Antep Baklava'da tattığımız her ürün gerçekten çok lezzetliydi. Baklavalar taze, çıtır ve tam kıvamındaydı. Güler yüzlü hizmetleri için teşekkürler."</p>
+        <span class="review-time">3 ay önce (Google Yorumu)</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-author">
+          <span>Ahmet Yılmaz</span>
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <p class="review-text">"Bağlıca bölgesinde yediğim en iyi havuç dilimi ve şöbiyet burda. Şerbeti baymıyor, fıstığı bol ve taptaze. Kesinlikle tavsiye ederim."</p>
+        <span class="review-time">2 ay önce (Google Yorumu)</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-author">
+          <span>Zehra Demir</span>
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <p class="review-text">"Paketlemesi ve sunumu çok özenliydi. Fıstıklı midye ve soğuk baklavasına bayıldık. Ailecek favori tatlıcımız oldu."</p>
+        <span class="review-time">1 ay önce (Google Yorumu)</span>
+      </div>
+
+      <div class="review-card">
+        <div class="review-author">
+          <span>Mehmet Can</span>
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <p class="review-text">"Güler yüzlü esnaf, kaliteli malzeme. Hakiki Antep baklavası yemek isteyenler başka yere bakmasın."</p>
+        <span class="review-time">4 ay önce (Google Yorumu)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <main class="container">
+    <h3 class="section-title">Eşsiz Baklava Menümüz</h3>
+    <div class="products-grid" id="productsGrid">
+      <!-- JS ile Dinamik Doldurulacak -->
+    </div>
+  </main>
+
+  <!-- FOOTER & İLETİŞİM -->
+  <footer class="footer-section">
+    <div class="footer-content">
+      <div class="footer-box">
+        <h4>ZİRVE ANTEP BAKLAVA</h4>
+        <p>Katkısız, doğal, özgün Antep lezzeti. Özel günleriniz ve tatlı krizleriniz için adresinize teslim.</p>
+        <p style="margin-top: 10px; color: var(--accent-color); font-weight: 600;">
+          <i class="fa-solid fa-clock"></i> Çalışma Saatleri: 10:00 - 00:00
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h4>İletişim & Sipariş</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i> 0553 595 52 84</li>
+          <li><i class="fa-brands fa-instagram" style="color: #e1306c;"></i> <a href="https://instagram.com/zirveantepbaklava" target="_blank" style="color: var(--text-muted); text-decoration: none;">Instagram: @zirveantepbaklava</a></li>
+          <li><i class="fa-solid fa-location-dot"></i> Yeni Bağlıca Mah., Zirve Cad., Open Sky 91A/117, Etimesgut / ANKARA</li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h4>Harita Konumu</h4>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.381285324546!2d32.6133!3d39.8975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMznCsDUzJzUxLjAiTiAzM8KwMzYnNDcuOCJF!5e0!3m2!1str!2str!4v1650000000000" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 Zirve Antep Baklava. Tüm Hakları Saklıdır.
+    </div>
+  </footer>
+
+  <!-- 3 NOKTA MENÜ MODALI -->
+  <div class="modal-overlay" id="menuModal">
+    <div class="cart-modal" style="max-width: 600px;">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-crown"></i> Zirve Bilgi & Menü</h3>
+        <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cart-body" style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <!-- 1. Misyonumuz ve Vizyonumuz -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 15px; border-radius: 8px;">
+          <h4 style="color: var(--accent-color); font-family: 'Cinzel', serif; margin-bottom: 8px; font-size: 16px;">
+            <i class="fa-solid fa-bullseye" style="margin-right: 6px;"></i> Misyonumuz ve Vizyonumuz
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">
+            <strong style="color: #fff;">Misyonumuz:</strong> Geleneksel Antep baklavasının eşsiz lezzetini, en taze ve doğal malzemelerle buluşturarak, hijyenik koşullarda ustalıkla üretmek ve her lokmada misafirlerimize unutulmaz bir tat yaşatmak.
+          </p>
+          <p style="font-size: 13px; color: var(--text-muted);">
+            <strong style="color: #fff;">Vizyonumuz:</strong> Ankara ve genelinde kaliteden ödün vermeyen duruşumuzla, güvenilirliğimizle ve eşsiz lezzetlerimizle akla gelen ilk premium baklava markası olmak.
+          </p>
+        </div>
+
+        <!-- 2. Popüler Ürünler -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 15px; border-radius: 8px;">
+          <h4 style="color: var(--accent-color); font-family: 'Cinzel', serif; margin-bottom: 12px; font-size: 16px;">
+            <i class="fa-solid fa-fire" style="margin-right: 6px;"></i> Popüler Ürünlerimiz
+          </h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+            <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 13px; font-weight: 600; color: #fff;">Fıstıklı Baklava</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Klasik Antep lezzeti</div>
+              </div>
+              <span style="color: var(--accent-color); font-weight: 700; font-size: 13px;">1050 ₺</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 13px; font-weight: 600; color: #fff;">Havuç Dilimi</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Bol fıstıklı çıtır</div>
+              </div>
+              <span style="color: var(--accent-color); font-weight: 700; font-size: 13px;">1050 ₺</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 13px; font-weight: 600; color: #fff;">Soğuk Baklava</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Hafif ve sütlü</div>
+              </div>
+              <span style="color: var(--accent-color); font-weight: 700; font-size: 13px;">1050 ₺</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 13px; font-weight: 600; color: #fff;">Fıstıklı Midye</div>
+                <div style="font-size: 11px; color: var(--text-muted);">Özel kesim</div>
+              </div>
+              <span style="color: var(--accent-color); font-weight: 700; font-size: 13px;">1195 ₺</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. İndirimde Olanlar -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 15px; border-radius: 8px;">
+          <h4 style="color: var(--accent-color); font-family: 'Cinzel', serif; margin-bottom: 8px; font-size: 16px;">
+            <i class="fa-solid fa-tags" style="margin-right: 6px;"></i> İndirimde Olanlar & Kampanyalar
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); text-align: center; padding: 10px 0;">
+            Şu an aktif bir indirim bulunmamaktadır. Yakında sürpriz kampanyalarımızla burada olacağız! ✨
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CART MODAL -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="cart-modal">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-cart-shopping"></i> Sipariş Sepetiniz</h3>
+        <button class="close-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cart-body" id="cartItems">
+        <!-- JS dinamik dolduracak -->
+      </div>
+      <div class="cart-footer">
+        <!-- ÖDEME YÖNTEMİ BİLGİLENDİRMESİ -->
+        <div class="payment-info-badge">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>Ödeme Seçenekleri: Kapıda Nakit / Kredi Kartı veya Havale/EFT ile Ödeme İmkanı.</span>
+        </div>
+        <div class="checkout-form" id="checkoutForm" style="display: none;">
+          <input type="text" id="customerName" placeholder="Adınız Soyadınız" required>
+          <input type="text" id="customerPhone" placeholder="Telefon Numaranız" required>
+          <textarea id="customerAddress" rows="2" placeholder="Teslimat Adresiniz (Mahalle, Cadde, Bina No)" required></textarea>
+        </div>
+        <div class="cart-total">
+          <span>Toplam Tutar:</span>
+          <span id="cartTotalAmount" style="color: var(--accent-color);">0 ₺</span>
+        </div>
+        <button class="whatsapp-order-btn" onclick="sendWhatsAppOrder()">
+          <i class="fa-brands fa-whatsapp" style="font-size: 22px;"></i>
+          WhatsApp İle Siparişi Tamamla
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/905535955284?text=Merhaba,%20sipariş%20vermek%20istiyorum." class="floating-whatsapp" target="_blank" title="WhatsApp Sipariş Hattı">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const products = [
+      { id: 1, name: "Cevizli Baklava", price: 695, img: "cevizli-baklava.jpg" },
+      { id: 2, name: "Cevizli Mozaik", price: 795, img: "cevizli-mozaik.jpg" },
+      { id: 3, name: "C. Burma Kadayıf", price: 795, img: "burma-kadayif.jpg" },
+      { id: 4, name: "Fıstıklı Baklava", price: 1050, img: "fistikli-baklava.jpg" },
+      { id: 5, name: "Fıstıklı Kadayıf", price: 1050, img: "fistikli-kadayif.jpg" },
+      { id: 6, name: "Havuç Dilimi", price: 1050, img: "havuc-dilimi.jpg" },
+      { id: 7, name: "Soğuk Baklava", price: 1050, img: "soguk-baklava.jpg" },
+      { id: 8, name: "Fıstıklı Midye", price: 1195, img: "fistikli-midye.jpg" },
+      { id: 9, name: "Özel Mozaik", price: 1195, img: "ozel-mozaik.jpg" },
+      { id: 10, name: "Şöbiyet", price: 1195, img: "sobiyet.jpg" },
+      { id: 11, name: "Kuru Baklava", price: 1195, img: "kuru-baklava.jpg" },
+      { id: 12, name: "Yeşil Sarma", price: 1895, img: "yesil-sarma.jpg" }
+    ];
+
+    let cart = [];
+    let productQuantities = {};
+
+    document.addEventListener("DOMContentLoaded", () => {
+      products.forEach(p => productQuantities[p.id] = 0.5);
+      renderProducts(products);
+    });
+
+    function renderProducts(items) {
+      const grid = document.getElementById("productsGrid");
+      grid.innerHTML = "";
+
+      if(items.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color: var(--text-muted); padding: 40px;">Aradığınız ürün bulunamadı.</p>`;
+        return;
+      }
+
+      items.forEach(product => {
+        const qty = productQuantities[product.id] || 0.5;
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" class="product-img">
+          <div class="product-info">
+            <div class="product-title">${product.name}</div>
+            <div class="product-price">${product.price} ₺ <span style="font-size: 12px; color: var(--text-muted); font-weight: normal;">/ KG</span></div>
+            <div class="product-controls">
+              <div class="qty-selector">
+                <button class="qty-btn" onclick="changeQty(${product.id}, -0.5)">-</button>
+                <span class="qty-text" id="qty-${product.id}">${qty} KG</span>
+                <button class="qty-btn" onclick="changeQty(${product.id}, 0.5)">+</button>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                <i class="fa-solid fa-plus"></i> Sepete Ekle
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function changeQty(productId, delta) {
+      let current = productQuantities[productId] || 0.5;
+      current += delta;
+      if (current < 0.5) current = 0.5;
+      productQuantities[productId] = current;
+      const el = document.getElementById(`qty-${productId}`);
+      if (el) el.innerText = `${current} KG`;
+    }
+
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const qty = productQuantities[productId] || 0.5;
+
+      const existingIndex = cart.findIndex(item => item.id === productId);
+      if (existingIndex > -1) {
+        cart[existingIndex].qty += qty;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          qty: qty
+        });
+      }
+
+      updateCartBadge();
+      alert(`${qty} KG ${product.name} sepete eklendi!`);
+    }
+
+    function updateCartBadge() {
+      const totalItems = cart.length;
+      document.getElementById("cartCount").innerText = totalItems;
+    }
+
+    function toggleCart() {
+      const modal = document.getElementById("cartModal");
+      modal.classList.toggle("active");
+      if (modal.classList.contains("active")) {
+        renderCart();
+      }
+    }
+
+    function toggleMenu() {
+      const modal = document.getElementById("menuModal");
+      modal.classList.toggle("active");
+    }
+
+    function renderCart() {
+      const cartItemsContainer = document.getElementById("cartItems");
+      const checkoutForm = document.getElementById("checkoutForm");
+      cartItemsContainer.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `<div class="empty-cart-msg"><i class="fa-solid fa-basket-shopping" style="font-size: 40px; margin-bottom: 10px;"></i><br>Sepetiniz şu an boş.</div>`;
+        document.getElementById("cartTotalAmount").innerText = "0 ₺";
+        checkoutForm.style.display = "none";
+        return;
+      }
+
+      checkoutForm.style.display = "flex";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "cart-item";
+        itemDiv.innerHTML = `
+          <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <p>${item.qty} KG x ${item.price} ₺</p>
+          </div>
+          <div style="display: flex; align-items: center;">
+            <span class="cart-item-price">${itemTotal} ₺</span>
+            <i class="fa-solid fa-trash remove-item" onclick="removeFromCart(${index})"></i>
+          </div>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+      });
+
+      document.getElementById("cartTotalAmount").innerText = `${total} ₺`;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartBadge();
+      renderCart();
+    }
+
+    function filterProducts() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = products.filter(p => p.name.toLowerCase().includes(query));
+      renderProducts(filtered);
+    }
+
+    function sendWhatsAppOrder() {
+      if (cart.length === 0) {
+        alert("Lütfen önce sepete ürün ekleyin.");
+        return;
+      }
+
+      const name = document.getElementById("customerName").value.trim();
+      const phone = document.getElementById("customerPhone").value.trim();
+      const address = document.getElementById("customerAddress").value.trim();
+
+      if (!name || !phone || !address) {
+        alert("Lütfen siparişi tamamlamak için Ad, Telefon ve Adres alanlarını doldurun.");
+        return;
+      }
+
+      let message = `*ZİRVE ANTEP BAKLAVA SİPARİŞİ*\n\n`;
+      message += `*Müşteri Bilgileri:*\n`;
+      message += `👤 Ad Soyad: ${name}\n`;
+      message += `📞 Telefon: ${phone}\n`;
+      message += `📍 Adres: ${address}\n\n`;
+      message += `*Sipariş Detayı:*\n`;
+
+      let total = 0;
+      cart.forEach((item, i) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        message += `${i + 1}. ${item.name} - ${item.qty} KG (${itemTotal} ₺)\n`;
+      });
+
+      message += `\n*Toplam Tutar:* ${total} ₺\n`;
+      message += `\nSiparişimin hazırlanmasını rica ederim.`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/905535955284?text=${encodedMessage}`;
+
+      window.open(whatsappUrl, "_blank");
+    }
+  </script>
+</body>
+</html>
